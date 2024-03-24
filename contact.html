@@ -118,48 +118,13 @@
     </nav>
     <div class="container">
         <h2>Contact Us</h2>
-
-           <!-- Contact Information -->
-    <div class="contact-info">
-        <h3>Contact Information</h3>
-        <p>Email: <a href="mailto:infodavieswd@gmail.com">infodavieswd@gmail.com</a></p>
-        <!-- Add more contact details if applicable -->
-    </div>
-
-    <!-- Contact Form -->
-    <div class="contact-form">
-        <h3>Get in Touch</h3>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required><br>
-            <input type="email" name="email" placeholder="Your Email" required><br>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br>
-            <button type="submit">Send Message</button>
-          </form>
-          
-          <script>
-          document.getElementById('contact-form').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = {};
-            formData.forEach((value, key) => { data[key] = value; });
-            
-            try {
-              const response = await fetch('/.netlify/functions/submitForm', {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                  'Content-Type': 'application/json'
-                }
-              });
-              
-              const result = await response.json();
-              console.log(result.message); // Log success or error message
-            } catch (error) {
-              console.error('Error:', error);
-            }
-          });
-          </script>
+    
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>Email: <a href="mailto:infodavieswd@gmail.com">infodavieswd@gmail.com</a></p>
+            <!-- Add more contact details if applicable -->
+        </div>
     </div>
 </div>
 
