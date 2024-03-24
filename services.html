@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davies Web Development - our Services</title>
+    <meta http-equiv="content-security-policy" content="defualt-src 'self'; script-src ;self;">
+    <style>
+      * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Arial Narrow Bold', Impact, Haettenschweiler, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #000000;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #666;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color:#000000;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Specific styles */
+        .logo {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .service {
+            margin-bottom: 50px;
+        }
+
+        .service h3 {
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .contact-form{
+            margin-top:50px;
+            text-align:center;
+        }
+        .contact-form label{
+          display:block;
+          margin-bottom:10px;
+        }
+        .contact-form input[type="email"]{
+            width:100%;
+            padding:10px;
+            margin-bottom:20px;
+            border: 1px solid #ccc;
+            border-radius:5px;
+            font-size:16px;
+        }
+        .contact-form button{
+            background-color:#333;
+            color:#fff;
+            border:none;
+            padding:10px 20px;
+            border-radius:5px;
+            cursor: pointer;
+            transition:background-color 0.3s ease;
+        }
+        .contact-form button:hover{
+            background-color:#666;
+        }
+
+    </style>
+</head>
+<body>
+     <header>
+         <img class="logo" src="images/logo OD.png" alt="logo">
+        <h1> Davies Web Development</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>  
+    </nav>
+    <div class="container">
+        <h2>Our Services</h2>
+
+        <!-- Service 1 -->
+        <div class="service">
+            <h3>Website Design</h3>
+            <p>Our web composition administration centers around making outwardly shocking 
+                and easy to understand sites customized to your business needs. We work 
+                intimately with our clients to grasp their image character, ideal interest group, 
+                and business goals. Our group of experienced planners joins inventiveness with usefulness
+                 to convey sites that look perfect as well as drive results. Whether you really want a straightforward 
+                 portfolio site or a mind boggling internet business stage, we have the skill to rejuvenate your vision.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service">
+            <h3>Web Development</h3>
+            <p>From concept to launch, our web development service covers the entire spectrum of building
+                 robust and scalable web solutions. We specialize in developing custom websites, web applications,
+                 and content management systems that meet the unique requirements of each client. Using the 
+                 latest web technologies and best practices, we ensure that your website is fast, secure, and 
+                 responsive across all devices. Whether you're starting from scratch or looking to revamp your 
+                 existing website, we're here to help you achieve your online goals.</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service">
+            <h3>Responsive Design</h3>
+            <p>In the present portable first world, it's fundamental for your site to look perfect 
+                and capability faultlessly on all gadgets. Our responsive plan administration guarantees
+                 that your site adjusts flawlessly to different screen sizes and goals, giving an ideal review 
+                 insight to your guests. Whether they're perusing on a work area, PC, tablet, or cell phone,
+                  they'll partake in a predictable and natural client experience. We focus on portable responsiveness
+                   in the entirety of our plan and improvement ventures to help you reach and draw in with your crowd
+                    successfully.</p>
+        </div>
+
+        <div class="contact-form">
+            <h2>get in touch</h2>
+            <form id="contactform">
+                <label for="email">enter your email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+
+        <!-- Add more services as needed -->
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Davies Web Development. All rights reserved.</p>
+        </div>
+    </footer>
+    <script> 
+     document.getElementById("contactform").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+    
+    var email = document.getElementById("email").value;
+    var formData = new FormData();
+    formData.append("email", email);
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "process-form.php", true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            alert(xhr.responseText);
+            document.getElementById("contactform").reset(); // Reset the form
+        } else {
+            alert("Error: " + xhr.statusText);
+        }
+    };
+    xhr.onerror = function() {
+        alert("Request failed. Check your network connection or server configuration.");
+    };
+    xhr.send(formData);
+});
+ </script>
+    
+</body>
+</html>
